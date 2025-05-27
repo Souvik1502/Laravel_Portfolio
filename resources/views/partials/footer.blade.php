@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Brand -->
             <div class="space-y-4">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Your Name</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Shadow Developer</h3>
                 <p class="text-gray-600 dark:text-gray-300">Full Stack Web Developer</p>
                 <p class="text-sm text-gray-500 dark:text-gray-400">Building modern web applications with passion and precision.</p>
             </div>
@@ -55,7 +55,7 @@
         
         <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
             <p class="text-center text-sm text-gray-500 dark:text-gray-400">
-                © {{ date('Y') }} Your Name. All rights reserved.
+                © {{ date('Y') }} Shadow Developer. All rights reserved.
             </p>
         </div>
     </div>
