@@ -1,61 +1,157 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Portfolio Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern portfolio website built with Laravel 12 and Tailwind CSS, featuring a responsive design, dark mode support, and contact form functionality.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Before you begin, ensure you have the following installed:
+- PHP >= 8.2
+- Composer
+- Node.js >= 18
+- npm (Node Package Manager)
+- MySQL or any other database supported by Laravel
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation Steps
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Souvik1502/Laravel_Portfolio.git
+   cd Laravel_Portfolio
+   ```
 
-## Learning Laravel
+2. **Install PHP Dependencies**
+   ```bash
+   composer install
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Set Up Environment File**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Configure Database**
+   - Open `.env` file and update the database credentials:
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=your_database_name
+     DB_USERNAME=your_database_username
+     DB_PASSWORD=your_database_password
+     ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Configure Mail Settings**
+   - Update the mail configuration in `.env` for the contact form:
+     ```
+     MAIL_MAILER=smtp
+     MAIL_HOST=your_mail_host
+     MAIL_PORT=your_mail_port
+     MAIL_USERNAME=your_mail_username
+     MAIL_PASSWORD=your_mail_password
+     MAIL_ENCRYPTION=tls
+     MAIL_FROM_ADDRESS=your_email@example.com
+     MAIL_FROM_NAME="${APP_NAME}"
+     ```
 
-## Laravel Sponsors
+6. **Install Node Dependencies**
+   ```bash
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+7. **Build Assets**
+   ```bash
+   npm run build
+   ```
 
-### Premium Partners
+8. **Run Database Migrations**
+   ```bash
+   php artisan migrate
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+9. **Create Storage Link**
+   ```bash
+   php artisan storage:link
+   ```
+
+## Running the Application
+
+1. **Start the Development Server**
+   ```bash
+   php artisan serve
+   ```
+
+2. **Start Vite Development Server (in a separate terminal)**
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:8000`
+
+## Features
+
+- Responsive Design
+- Dark Mode Support
+- Animated Sections with AOS
+- Contact Form with Email Integration
+- Modern UI with Tailwind CSS
+- Portfolio Project Showcase
+- Skills Grid
+- About Section
+- Social Links Integration
+
+## Project Structure
+
+- `resources/views/layouts/master.blade.php` - Main layout template
+- `resources/views/partials/` - Component partials (navigation, hero, about, etc.)
+- `resources/css/app.css` - Main CSS file with Tailwind imports
+- `resources/js/app.js` - Main JavaScript file
+- `app/Http/Controllers/ContactController.php` - Contact form handling
+- `app/Mail/ContactFormMail.php` - Contact form email template
+
+## Customization
+
+1. **Updating Content**
+   - Edit blade files in `resources/views/partials/` to update section content
+   - Modify `resources/css/app.css` for styling changes
+   - Update `tailwind.config.js` for theme customization
+
+2. **Adding New Sections**
+   - Create new blade files in `resources/views/partials/`
+   - Include them in `resources/views/welcome.blade.php`
+
+3. **Modifying Email Templates**
+   - Edit `resources/views/emails/contact-form.blade.php`
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. **Assets Not Loading**
+   ```bash
+   npm run build
+   php artisan cache:clear
+   php artisan view:clear
+   ```
+
+2. **Database Issues**
+   ```bash
+   php artisan migrate:fresh
+   ```
+
+3. **Composer Issues**
+   ```bash
+   composer dump-autoload
+   ```
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Feel free to fork this repository and submit pull requests for any improvements.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Contact
+
+For any queries or support, please use the contact form on the website or create an issue in this repository.
