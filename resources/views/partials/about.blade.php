@@ -11,7 +11,7 @@
             <!-- Image -->
             <div class="relative" data-aos="fade-right">
                 <div class="aspect-w-4 aspect-h-5">
-                    <img class="object-cover rounded-lg shadow-lg" src="https://placehold.co/600x800" alt="Profile picture">
+                    <img class="object-cover rounded-lg shadow-lg" src="images/profile-picture.jpg" alt="Profile picture">
                 </div>
                 <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-600/10 rounded-full -z-10"></div>
             </div>
